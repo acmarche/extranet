@@ -17,3 +17,10 @@ services:
   AcMarche\Extranet\:
     resource: '../src/*'
     exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
+
+  AcMarche\Extranet\Security\SecurityRoles:
+    tags: ['marchebe.roles']
+
+  AcMarche\Extranet\Security\LocatorRoles:
+    arguments:
+      - !tagged_iterator { tag: marchebe.roles}
