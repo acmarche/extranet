@@ -34,7 +34,7 @@ class ExtranetExtension extends Extension implements PrependExtensionInterface
         $this->loader = $this->initPhpFilerLoader($container);
 
         foreach (array_keys($container->getExtensions()) as $name) {
-            if ($name === 'twig') {
+            if ('twig' === $name) {
                 $this->loadConfig('twig');
             }
         }

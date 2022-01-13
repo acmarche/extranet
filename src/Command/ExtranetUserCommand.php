@@ -13,22 +13,17 @@ class ExtranetUserCommand extends Command
 {
     protected static $defaultName = 'extranet:user';
     protected static $defaultDescription = 'Add a short description for your command';
-    private UserRepository $userRepository;
-    private UserPasswordHasherInterface $userPasswordHasher;
 
     public function __construct(
-        string $name = null,
-        UserRepository $userRepository,
-        UserPasswordHasherInterface $userPasswordHasher
+        private UserRepository $userRepository,
+        private UserPasswordHasherInterface $userPasswordHasher,
+        string $name = null
     ) {
         parent::__construct($name);
-        $this->userRepository = $userRepository;
-        $this->userPasswordHasher = $userPasswordHasher;
     }
 
     protected function configure(): void
     {
-
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int

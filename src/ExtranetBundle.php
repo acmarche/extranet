@@ -10,5 +10,4 @@ class ExtranetBundle extends Bundle
     {
         return \dirname(__DIR__);
     }
-
 }
