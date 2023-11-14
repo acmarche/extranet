@@ -2,9 +2,15 @@
 
 namespace AcMarche\Extranet\Security;
 
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
+use Symfony\Component\DependencyInjection\Attribute\TaggedIterator;
+
 class LocatorRoles
 {
-    public function __construct(private iterable $handlers)
+    public function __construct( #[Autowire([
+             new TaggedIterator('marchebe.roles'),
+       ] )]
+    private iterable $handlers)
     {
     }
 
