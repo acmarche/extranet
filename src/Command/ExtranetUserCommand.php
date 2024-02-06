@@ -3,17 +3,19 @@
 namespace AcMarche\Extranet\Command;
 
 use AcMarche\Taxe\Repository\UserRepository;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
+#[AsCommand(
+    name: 'extranet:user',
+    description: 'no',
+)]
 class ExtranetUserCommand extends Command
 {
-    protected static $defaultName = 'extranet:user';
-    protected static $defaultDescription = 'Add a short description for your command';
-
     public function __construct(
         private UserRepository $userRepository,
         private UserPasswordHasherInterface $userPasswordHasher,
