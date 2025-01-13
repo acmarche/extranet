@@ -10,7 +10,7 @@ class LocatorRoles
     public function __construct( #[Autowire([
              new TaggedIterator('marchebe.roles'),
        ] )]
-    private iterable $handlers)
+    private readonly iterable $handlers)
     {
     }
 

@@ -17,8 +17,8 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 class ExtranetUserCommand extends Command
 {
     public function __construct(
-        private UserRepository $userRepository,
-        private UserPasswordHasherInterface $userPasswordHasher,
+        private readonly UserRepository $userRepository,
+        private readonly UserPasswordHasherInterface $userPasswordHasher,
         string $name = null
     ) {
         parent::__construct($name);
@@ -30,7 +30,7 @@ class ExtranetUserCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $io = new SymfonyStyle($input, $output);
+        new SymfonyStyle($input, $output);
         $user = $this->userRepository->find(1);
         $password = $this->userPasswordHasher->hashPassword($user, 'homer');
         $user->setPassword($password);

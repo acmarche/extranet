@@ -14,13 +14,13 @@ class ExtranetBundle extends  AbstractBundle
         return \dirname(__DIR__);
     }
 
-    public function loadExtension(array $config, ContainerConfigurator $container, ContainerBuilder $builder): void
+    public function loadExtension(array $config, ContainerConfigurator $containerConfigurator, ContainerBuilder $containerBuilder): void
     {
-        $container->import('../config/services.php');
+        $containerConfigurator->import('../config/services.php');
     }
 
-    public function prependExtension(ContainerConfigurator $container, ContainerBuilder $builder): void
+    public function prependExtension(ContainerConfigurator $containerConfigurator, ContainerBuilder $containerBuilder): void
     {
-        $container->import('../config/packages/twig.php');
+        $containerConfigurator->import('../config/packages/twig.php');
     }
 }
