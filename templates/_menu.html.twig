@@ -1,7 +1,16 @@
 <ul class="nav nav-pills">
     <li class="nav-item"><a href="/" class="nav-link" aria-current="page">Home</a></li>
-    <li class="nav-item"><a href="{{ path('taxe_new') }}" class="nav-link">New taxe</a></li>
-    <li class="nav-item"><a href="{{ path('nomenclature_index') }}" class="nav-link">Nomen</a></li>
-    <li class="nav-item"><a href="{{ path('taxe_index') }}" class="nav-link">Taxe</a></li>
-    <li class="nav-item"><a href="{{ path('taxe_user') }}" class="nav-link">User</a></li>
+
+    {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+        <li class="nav-item">
+            <a href="{{ path('app_login') }}" class="nav-link"><i class="ti ti-login"></i>
+                Se connecter</a>
+        </li>
+    {% else %}
+        <li class="nav-item"><a href="{{ path('taxe_user') }}" class="nav-link">User</a></li>
+        <li class="nav-item"><a href="{{ path('app_logout') }}" class="nav-link"><i class="ti ti-logout"></i>
+                Déconnexion</a>
+        </li>
+    {% endif %}
+
 </ul>

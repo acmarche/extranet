@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{% block title %}Extranet{% endblock %}</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('bundles/taxe/favicon.ico') }}"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
     {% block stylesheets %}
 
     {% endblock %}
@@ -21,9 +21,7 @@
             <i class="fa fa-trash-alt"></i>
             <span class="fs-4">Extranet</span>
         </a>
-        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-            {% include '@Extranet/_menu.html.twig' %}
-        {% endif %}
+        {% include '@Extranet/_menu.html.twig' %}
     </header>
 </div>
 
