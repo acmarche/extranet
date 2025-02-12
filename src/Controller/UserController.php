@@ -29,20 +29,20 @@ class UserController extends AbstractController
     /**
      * Lists all Utilisateur entities.
      */
-    #[Route(path: '/', name: 'taxe_user', methods: ['GET'])]
+    #[Route(path: '/', name: 'extranet_user', methods: ['GET'])]
     public function index(): Response
     {
         $users = $this->userRepository->findBy([], ['nom' => 'ASC']);
 
         return $this->render(
-            '@Taxe/user/index.html.twig',
+            '@Extranet/user/index.html.twig',
             [
                 'users' => $users,
             ]
         );
     }
 
-    #[Route(path: '/new', name: 'taxe_user_new', methods: ['GET', 'POST'])]
+    #[Route(path: '/new', name: 'extranet_user_new', methods: ['GET', 'POST'])]
     public function new(Request $request): Response
     {
         $user = new User();
@@ -56,11 +56,11 @@ class UserController extends AbstractController
 
             $this->addFlash('success', "L'utilisateur a bien été ajouté");
 
-            return $this->redirectToRoute('taxe_user');
+            return $this->redirectToRoute('extranet_user');
         }
 
         return $this->render(
-            '@Taxe/user/new.html.twig',
+            '@Extranet/user/new.html.twig',
             [
                 'user' => $user,
                 'form' => $form->createView(),
@@ -68,18 +68,18 @@ class UserController extends AbstractController
         );
     }
 
-    #[Route(path: '/{id}', name: 'taxe_user_show', methods: ['GET'])]
+    #[Route(path: '/{id}', name: 'extranet_user_show', methods: ['GET'])]
     public function show(User $user): Response
     {
         return $this->render(
-            '@Taxe/user/show.html.twig',
+            '@Extranet/user/show.html.twig',
             [
                 'user' => $user,
             ]
         );
     }
 
-    #[Route(path: '/{id}/edit', name: 'taxe_user_edit', methods: ['GET', 'POST'])]
+    #[Route(path: '/{id}/edit', name: 'extranet_user_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, User $user): Response
     {
         $editForm = $this->createForm(UserEditType::class, $user);
@@ -88,11 +88,11 @@ class UserController extends AbstractController
             $this->userRepository->flush();
             $this->addFlash('success', "L'utilisateur a bien été modifié");
 
-            return $this->redirectToRoute('taxe_user');
+            return $this->redirectToRoute('extranet_user');
         }
 
         return $this->render(
-            '@Taxe/user/edit.html.twig',
+            '@Extranet/user/edit.html.twig',
             [
                 'user' => $user,
                 'form' => $editForm->createView(),
@@ -100,7 +100,7 @@ class UserController extends AbstractController
         );
     }
 
-    #[Route(path: '/{id}', name: 'taxe_user_delete', methods: ['POST'])]
+    #[Route(path: '/{id}', name: 'extranet_user_delete', methods: ['POST'])]
     public function delete(Request $request, User $user): RedirectResponse
     {
         if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
@@ -110,6 +110,6 @@ class UserController extends AbstractController
             $this->addFlash('success', 'L\'utilisateur a été supprimé');
         }
 
-        return $this->redirectToRoute('taxe_user');
+        return $this->redirectToRoute('extranet_user');
     }
 }

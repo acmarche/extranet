@@ -1,1 +1,12 @@
 {% extends 'base5.html.twig' %}
+
+{% block menu_top %}
+    {% if is_granted('ROLE_TAXE_ADMIN') %}
+        <li>
+            <a href="{{ path('extranet_user') }}" class="nav-link px-2">
+                <i class="ti ti-user"> </i>
+                Gestion des utilisateurs
+            </a>
+        </li>
+    {% endif %}
+{% endblock %}
