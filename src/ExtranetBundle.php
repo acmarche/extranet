@@ -20,6 +20,7 @@ class ExtranetBundle extends  AbstractBundle
 
     public function prependExtension(ContainerConfigurator $containerConfigurator, ContainerBuilder $containerBuilder): void
     {
+        $containerConfigurator->import('../config/packages/security.php');
         $containerConfigurator->import('../config/packages/twig.php');
     }
 }
