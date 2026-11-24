@@ -1,0 +1,24 @@
+{% extends 'base5.html.twig' %}
+
+{% block brand %}
+    <a class="navbar-brand" href="{{ path('enquete_index') }}" title="Accueil">
+        <i class="ti ti-copy" style="font-size: 40px;"></i> Enquête publique</a>
+{% endblock %}
+
+{% block menu_top %}
+    <li>
+        <a href="{{ path('enquete_index') }}" class="nav-link px-2">
+            <i class="ti ti-list"> </i>
+            Enquete publique
+        </a>
+    </li>
+    {% if is_granted('ROLE_ENQUETE_ADMIN') %}
+        <li>
+            <a href="{{ path('enquete_new') }}" class="nav-link px-2">
+                <i class="ti ti-plus"> </i>
+                Ajouter une enquête
+            </a>
+        </li>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends '@AcMarcheEnquetePublique/layout.html.twig' %}
+
+{% block body %}
+    <div class="page-header">
+        <h3>Liste des catégories sur marche.be</h3>
+    </div>
+    {% if is_granted('ROLE_ENQUETE_ADMIN') %}
+
+        <a href="{{ path('enquete_categorie_wp_new') }}" class="btn btn-primary" role="button"><i
+                    class="ti ti-plus"></i> Ajouter</a>
+        <br/><br/>
+
+    {% endif %}
+
+    <table class='table table-bordered table-hover'>
+        <thead>
+        <tr>
+            <th>Nom</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for categorie_wp in categorie_wps %}
+            <tr>
+                <td>
+                    <a href="{{ path('enquete_categorie_wp_show', { 'id': categorie_wp.id }) }}">
+                        {{ categorie_wp }}
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends '@Taxe/layout.html.twig' %}
+
+{% block title %}Edit Exercice{% endblock %}
+
+{% block body %}
+    <div class="card">
+        <h3 class="card-header">Edit Exercice</h3>
+        <div class="card-body">
+            {{ include('@Taxe/exercice/_form.html.twig', {'button_label': 'Update'}) }}
+        </div>
+    </div>
+    {{ include('@Taxe/exercice/_delete_form.html.twig') }}
+{% endblock %}

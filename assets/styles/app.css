@@ -1,0 +1,8 @@
+.icone-rose {
+    color: deeppink;
+}
+
+label.required:after {
+    content: " *";
+    color: red;
+}

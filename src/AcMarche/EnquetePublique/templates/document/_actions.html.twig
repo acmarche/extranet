@@ -1,0 +1,11 @@
+    <a href="{{ path('enquete_document_edit', { 'id': document.id }) }}" class="btn btn-primary"
+       role="button"><i class="ti ti-pencil"></i> Editer</a>
+
+    <a href="{{ path('enquete_show',{'id': document.enquete.id}) }}" class="btn btn-primary">
+        <i class="ti ti-arrow-left"></i> Retour à l' enquête
+    </a>
+
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
+        <i class="ti ti-trash"></i> Supprimer le document
+    </button>
+    <br/><br/>

@@ -1,0 +1,35 @@
+{% extends '@AcMarcheQrCode/layout.html.twig' %}
+
+{% block body %}
+    <div class="card">
+        <h3 class="card-header">Générer un QrCode</h3>
+        <div class="card-body">
+            <div class="alert alert-success my-3" role="alert">
+                Que se passera-t-il lorsqu'on scannera votre QrCode ?
+            </div>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <a href="{{ path('qrcode_new',{'type':'url','uuid':uuid}) }}">On est redirigé vers une adresse de site web</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="{{ path('qrcode_new',{'type':'sms','uuid':uuid}) }}">On envoie un sms à un numéro</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="{{ path('qrcode_new',{'type':'phoneNumber','uuid':uuid}) }}">On téléphone au numéro</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="{{ path('qrcode_new',{'type':'email','uuid':uuid}) }}">On envoie un email</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="{{ path('qrcode_new',{'type':'epc','uuid':uuid}) }}">On crée un virement bancaire</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="{{ path('qrcode_new',{'type':'geo','uuid':uuid}) }}">On pointe un lieu (géolocalisation)</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="{{ path('qrcode_new',{'type':'wifi','uuid':uuid}) }}">On configure un wifi</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}

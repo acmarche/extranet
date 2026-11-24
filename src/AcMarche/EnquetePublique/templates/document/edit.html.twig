@@ -1,0 +1,29 @@
+{% extends '@EnquetePublique/layout.html.twig' %}
+
+{% block body -%}
+
+    <div class="card mb-3">
+        <div class="card-header">
+            <h3>{{ document }}</h3>
+        </div>
+        <div class="card-body">
+
+            {{ form_start(form) }}
+            {{ form_errors(form) }}
+            {{ form_widget(form) }}
+
+            <button class="btn btn-primary mr-1 mb-2" type="submit"><i class="ti ti-device-floppy" aria-hidden="true"></i>
+                Sauvegarder
+            </button>
+
+            {{ form_end(form) }}
+
+        </div>
+        <div class="card-footer">
+            <a href="{{ path('enquete_document_show',{'id': document.id}) }}" class="mt-4">
+                <i class="ti ti-arrow-left"></i> Annuler
+            </a>
+        </div>
+    </div>
+
+{% endblock %}

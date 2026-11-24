@@ -1,0 +1,40 @@
+{% extends '@AcMarchePatrimoine/layout.html.twig' %}
+
+{% block body %}
+    <div class="card">
+        <div class="card-header">
+            <h3>Liste des localites</h3>
+        </div>
+        <div class="card-body">
+
+            {% if is_granted('ROLE_PATRIMOINE_ADMIN') %}
+
+                <a href="{{ path('patrimoine_localite_new') }}" class="btn btn-primary" role="button"><i
+                            class="ti ti-plus"></i> Ajouter</a>
+                <br/><br/>
+
+            {% endif %}
+
+            <table class='table table-bordered table-hover'>
+                <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Patrimoine</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for localite in localites %}
+                    <tr>
+                        <td>
+                            <a href="{{ path('patrimoine_localite_show', { 'id': localite.id }) }}">
+                                {{ localite }}
+                            </a>
+                        </td>
+                        <td></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

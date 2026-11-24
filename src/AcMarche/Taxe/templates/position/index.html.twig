@@ -1,0 +1,36 @@
+{% extends '@Taxe/layout.html.twig' %}
+
+{% block body %}
+
+    <div class="card">
+        <h3 class="card-header">Ordre des taxes</h3>
+        <div class="card-body">
+            <div id="success"></div>
+
+            <div class="alert alert-info">
+                Cliquez sur une taxe et maintenez le clic tout en clissant la souris pour changer l'ordre
+            </div>
+
+            <ul class="list-group" {{ stimulus_controller('sortable', {'updateUrl': path('taxe_request_trier')}) }}
+                data-controller="sortable"
+                data-sortable-animation-value="150">
+                {% for taxe in taxes %}
+                    <li
+                            data-id="{{ taxe.id }}"
+                            class="list-group-item"
+                            style="cursor: pointer;">
+                        <i class="ti ti-menu-2"></i>
+                        <a href="{{ path('taxe_show', {'id': taxe.id}) }}">
+                            {{ taxe.nom }}
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="list-group-item">
+                        no records found
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}

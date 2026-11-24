@@ -1,0 +1,44 @@
+<fieldset class="scheduler-border">
+    <legend class="scheduler-border">Format</legend>
+    <div class="row">
+        <div class="col-md-6">
+            {{ form_row(form.format) }}
+        </div>
+        <div class="col-md-6">
+            {{ form_row(form.pixels) }}
+        </div>
+        <div class="col-md-6">
+            {{ form_row(form.style) }}
+        </div>
+        <div class="col-md-6">
+            {{ form_row(form.margin) }}
+        </div>
+    </div>
+</fieldset>
+
+<fieldset class="scheduler-border">
+    <legend class="scheduler-border">Couleurs</legend>
+    <div class="row">
+        <div class="col-md-6">
+            {{ form_row(form.color) }}
+        </div>
+        <div class="col-md-6">
+            {{ form_row(form.backgroundColor) }}
+        </div>
+    </div>
+</fieldset>
+
+<fieldset class="scheduler-border">
+    <legend class="scheduler-border">Joindre une image</legend>
+    <div class="row align-items-center justify-content-center">
+        <div class="col-md-6">
+            {{ form_row(form.addDefaultLogo) }}
+        </div>
+        <div class="col-md-6">
+            {{ form_row(form.imagePercentage) }}
+        </div>
+    </div>
+    {{ form_row(form.logo) }}
+</fieldset>
+
+    {{ form_row(form.name) }}

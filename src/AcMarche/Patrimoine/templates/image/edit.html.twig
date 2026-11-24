@@ -1,0 +1,22 @@
+{% extends '@AcMarchePatrimoine/layout.html.twig' %}
+
+{% block body -%}
+    <div class="card bg-light mb-3">
+        <div class="card-header">
+            <h3>Images de {{ patrimoine }}</h3>
+        </div>
+        <div class="card-body">
+             {{ form_start(form, { 'attr': {'id': 'formdrop','class': 'mt-3 dropzone', 'data-controller': 'dropzone'}}) }}
+            {{ form_widget(form, { label: false }) }}
+            {{ form_errors(form) }}
+
+            <button type="submit" class="btn btn-primary"><i class="ti ti-photo-up"></i> Envoyer les images</button>
+            {{ form_end(form) }}
+        </div>
+        <div class="card-footer">
+            <a href="{{ path('patrimoine_show',{'id': patrimoine.id}) }}">
+                <i class="ti ti-arrow-left"></i> Retour au patrimoine
+            </a>
+        </div>
+    </div>
+{% endblock %}

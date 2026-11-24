@@ -1,0 +1,38 @@
+{% extends '@AcMarcheQrCode/layout.html.twig' %}
+
+{% block body %}
+    <div class="card">
+        <h3 class="card-header">Générer un QrCode</h3>
+        <div class="card-body">
+
+            {% if codes|length > 0 %}
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Id</th>
+                        <th>Nom</th>
+                        <th>Type</th>
+                        <th>Crée le</th>
+                    </tr>
+                    {% for qrcode in codes %}
+                        <tr>
+                            <td>
+                                <a href="{{ path('qrcode_show', {'uuid':qrcode.uuid}) }}">
+                                    Num {{ qrcode.id }}
+                                </a>
+                            </td>
+                            <td>{{ qrcode.name }}</td>
+                            <td>{{ qrcode.type }}</td>
+                            <td>{{ qrcode.createdAt|format_date('full') }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% else %}
+                <p>Aucun qrcode généré</p>
+                <a href="{{ path('qrcode_select_type') }}" class="btn btn-primary">
+                    Générer un QRCode
+                </a>
+            {% endif %}
+
+        </div>
+    </div>
+{% endblock %}

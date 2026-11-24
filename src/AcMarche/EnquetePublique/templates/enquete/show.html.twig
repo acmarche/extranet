@@ -1,0 +1,51 @@
+{% extends '@AcMarcheEnquetePublique/layout.html.twig' %}
+
+{% block body -%}
+    <div class="card bg-light mb-3">
+        <div class="card-header">
+            <h3>{{ enquete.intitule }}</h3>
+        </div>
+        <div class="card-body">
+
+            {% include '@EnquetePublique/enquete/_actions.html.twig' %}
+
+            <br/><br/>
+            <table class="table table-bordered">
+                <tr>
+                    <th>Demandeur:</th>
+                    <td>{{ enquete.demandeur }}</td>
+                </tr>
+                <tr>
+                    <th>Publié</th>
+                    <td>
+                        Du {{ enquete.dateDebut|format_date('full') }}
+                        au {{ enquete.dateFin|format_date('full') }}
+                    </td>
+                </tr>
+                <tr>
+                    <th>Avis (fiche)</th>
+                    <td>
+                        <a href="{{ vich_uploader_asset(enquete, 'avisFile') }}" target="_blank">
+                            <i class="ti ti-download"></i> Télécharger
+                        </a>
+                    </td>
+                </tr>
+            </table>
+
+            {% include '@EnquetePublique/enquete/_documents.html.twig' %}
+
+            <p>
+                {{ enquete.description|nl2br }}
+            </p>
+
+            <h4 class="text-success">Situation sur la carte</h4>
+            <i class="ti ti-map"></i>
+
+            {{ enquete.rue }} {{ enquete.numero }} <br/>
+            {{ enquete.codePostal }} {{ enquete.localite }}
+            {% include '@EnquetePublique/localisation/_openstreetmap.html.twig' %}
+
+            {% include '@EnquetePublique/enquete/_delete.html.twig' %}
+        </div>
+    </div>
+{% endblock %}

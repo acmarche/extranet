@@ -1,0 +1,47 @@
+{% extends '@AcMarcheEnquetePublique/layout.html.twig' %}
+
+{% block body %}
+    <div class="page-header">
+        <h3>Liste des enquêtes publiques</h3>
+    </div>
+
+    <div class="alert alert-info">
+        La liste des enquêtes est publiées sur sur le site :<br/>
+        <a target="_blank"
+           href="https://www.marche.be/administration/publications-communales/enquetes-publiques-urbanisme-commune-de-marche-en-famenne/?refresh=1">www.marche.be</a>
+    </div>
+
+    <table class='table table-bordered table-hover'>
+        <thead>
+        <tr>
+            <th>Objet</th>
+            <th>Demandeur</th>
+            <th>Localité</th>
+            <th>Affichage</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for enquete in enquetes %}
+            <tr>
+                <td>
+                    <a href="{{ path('enquete_show', { 'id': enquete.id }) }}">
+                        {{ enquete.intitule|u.truncate(140,'...') }}
+                    </a>
+                </td>
+                <td>
+                    <a href="{{ path('enquete_show', { 'id': enquete.id }) }}">
+                        {{ enquete.demandeur }}
+                    </a>
+                </td>
+                <td> {{ enquete.localite }}</td>
+                <td>
+                    Du {{ enquete.dateDebut|format_date('short') }}
+
+                    au {{ enquete.dateFin|format_date('short') }}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

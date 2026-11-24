@@ -1,0 +1,30 @@
+{
+  "name": "acmarche/patrimoine",
+  "description": "Liste des patrimoines communales",
+  "type": "symfony-bundle",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "jfsenechal",
+      "email": "jfsenechal@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^7.3",
+    "vich/uploader-bundle": "^1.12",
+    "api-platform/api-pack": "^1.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "AcMarche\\Patrimoine\\": "src"
+    },
+    "exclude-from-classmap": [
+      "/Tests/"
+    ]
+  },
+  "extra": {
+    "symfony": {
+      "allow-contrib": true
+    }
+  }
+}

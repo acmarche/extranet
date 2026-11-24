@@ -1,0 +1,41 @@
+{% extends 'base5.html.twig' %}
+
+{% block brand %}
+    <a class="navbar-brand" href="{{ path('patrimoine_home') }}" title="Accueil">
+        <i class=" ti-chess-rook" style="font-size: 40px;"></i> Patrimoine</a>
+{% endblock %}
+
+{% block menu_top %}
+    <li>
+        <a href="{{ path('patrimoine_index') }}" class="nav-link px-2">
+            <i class="ti ti-list"> </i>
+            Simulateur
+        </a>
+    </li>
+    {% if is_granted('ROLE_PATRIMOINE_ADMIN') %}
+        <li>
+            <a href="{{ path('patrimoine_new') }}" class="nav-link px-2">
+                <i class="ti ti-plus"> </i>
+                Ajouter un patrimoine
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('patrimoine_type_index') }}" class="nav-link px-2">
+                <i class="ti ti-list"> </i>
+                Types
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('patrimoine_localite_index') }}" class="nav-link px-2">
+                <i class="ti ti-list"> </i>
+                Localités
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('patrimoine_statut_index') }}" class="nav-link px-2">
+                <i class="ti ti-list"> </i>
+                Statuts
+            </a>
+        </li>
+    {% endif %}
+{% endblock %}

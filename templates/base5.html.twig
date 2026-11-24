@@ -1,0 +1,64 @@
+<!-- use in intranet -->
+<!doctype html>
+<html lang="fr">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}Taxes{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('bundles/taxe/favicon.ico') }}"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+    {% block stylesheets %}
+
+    {% endblock %}
+    {% block javascripts %}
+        {% block importmap %}{{ importmap('app') }}{% endblock %}
+    {% endblock %}
+</head>
+<body>
+{% set action = app.request.attributes.get("_route") %}
+<div class="container">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+        <div class="col-md-3 mb-2 mb-md-0">
+            {% block brand %}
+                <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
+                    <i class="ti ti-chess-rook" style="font-size: 40px;"></i>
+                    <span class="ms-2 fs-4 navbar-text">Extranet</span>
+                </a>
+            {% endblock %}
+        </div>
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            {% block menu_top %}
+            {% endblock %}
+        </ul>
+        <div class="col-md-2 text-end">
+            {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+                <a role="button" href="{{ path('app_login') }}" class="btn btn-outline-primary me-2">Me connecter</a>
+            {% else %}
+                <a role="button" href="{{ path('app_logout') }}" class="btn btn-outline-primary me-2">Me déconnecter</a>
+            {% endif %}
+        </div>
+    </header>
+</div>
+<main role="main" {% block main_class %}class="container pt-3"{% endblock %}>
+
+    {% include '@Extranet/_flash_messages.html.twig' %}
+
+    {% block notifications %}
+
+    {% endblock %}
+
+    {% block body %}
+
+    {% endblock %}
+</main>
+
+{% block footer %}
+    <footer class="mb-5 d-print-none">
+
+    </footer>
+{% endblock %}
+{% block scripts %}{% endblock %}
+
+</body>
+</html>

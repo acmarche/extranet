@@ -1,0 +1,13 @@
+{% extends '@Taxe/layout.html.twig' %}
+
+{% block title %}New Exercice{% endblock %}
+
+{% block body %}
+
+    <div class="card">
+        <h3 class="card-header">Nouvel exercice pour {{ taxe }}</h3>
+        <div class="card-body">
+            {{ include('@Taxe/exercice/_form.html.twig') }}
+        </div>
+    </div>
+{% endblock %}

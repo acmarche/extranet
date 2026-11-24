@@ -1,0 +1,33 @@
+controllers:
+  resource:
+    path: ../src/Controller/
+    namespace: App\Controller
+  type: attribute
+
+extranet:
+  resource: ../src/AcMarche/Extranet/src/Controller/
+  type: attribute
+  prefix: /
+
+taxe:
+  resource: ../src/AcMarche/Taxe/src/Controller/
+  type: attribute
+  prefix: /taxes
+
+patrimoine:
+  resource: ../src/AcMarche/Patrimoine/src/Controller/
+  type: attribute
+  prefix: /patrimoine
+
+enquete:
+  resource: ../src/AcMarche/EnquetePublique/src/Controller/
+  type: attribute
+  prefix: /enquete
+
+leasing:
+  resource: ../src/AcMarche/Leasing/src/Controller/
+  type: attribute
+
+qrcode:
+  resource: ../src/AcMarche/QrCode/src/Controller/
+  type: attribute

@@ -1,0 +1,36 @@
+{% extends '@AcMarcheEnquetePublique/layout.html.twig' %}
+
+{% block body %}
+    <div class="page-header">
+        <h3>Liste des catégories</h3>
+    </div>
+    {% if is_granted('ROLE_ENQUETE_ADMIN') %}
+
+        <a href="{{ path('enquete_categorie_new') }}" class="btn btn-primary" role="button"><i
+                    class="ti ti-plus"></i> Ajouter</a>
+        <br/><br/>
+
+    {% endif %}
+
+    <table class='table table-bordered table-hover'>
+        <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Enquetes</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for categorie in categories %}
+            <tr>
+                <td>
+                    <a href="{{ path('enquete_categorie_show', { 'id': categorie.id }) }}">
+                        {{ categorie }}
+                    </a>
+                </td>
+                <td>{{ categorie.enquetes|length }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

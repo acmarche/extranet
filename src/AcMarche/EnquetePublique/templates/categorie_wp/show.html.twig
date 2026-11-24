@@ -1,0 +1,17 @@
+{% extends '@AcMarcheEnquetePublique/layout.html.twig' %}
+
+{% block body -%}
+    <div class="card bg-light mb-3">
+        <div class="card-header">
+            <h3>{{ categorie_wp }}</h3>
+        </div>
+        <div class="card-body">
+
+            {% include '@EnquetePublique/categorie_wp/_actions.html.twig' %}
+
+            <br/><br/>
+
+            {% include '@EnquetePublique/categorie_wp/_delete.html.twig' %}
+        </div>
+    </div>
+{% endblock %}

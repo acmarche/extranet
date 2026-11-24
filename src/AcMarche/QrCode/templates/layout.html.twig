@@ -1,0 +1,18 @@
+{% extends 'base5.html.twig' %}
+{% block favicon %}
+    <link rel="icon" type="image/svg+xml" href="{{ asset('/bundles/qrcode/images/qrcode.svg') }}"/>
+{% endblock %}
+{% block title %}QrCode{% endblock %}
+
+{% block brand %}
+    <a class="navbar-brand" href="{{ path('qrcode_home') }}" title="Accueil">
+        <i class="fas fa-home"></i> QrCode</a>
+{% endblock %}
+
+{% block menu_top %}
+    <li class="nav-item">
+        <a href="{{ path('qrcode_select_type') }}" class="nav-link">
+            <i class="ti ti-plus"></i> Nouveau QrCode
+        </a>
+    </li>
+{% endblock %}

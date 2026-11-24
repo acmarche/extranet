@@ -1,0 +1,12 @@
+{{ form_start(form) }}
+    {{ form_errors(form) }}
+<div class="d-flex flex-row gap-2 d-print-none mb-1">
+    <div class="col">
+        {{ form_row(form.nom) }}
+    </div>
+    <div class="col">
+        {{ form_row(form.nomenclature) }}
+    </div>
+</div>
+<input type="submit" name="search" value="Rechercher" class="btn btn-primary mb-3">
+{{ form_end(form) }}

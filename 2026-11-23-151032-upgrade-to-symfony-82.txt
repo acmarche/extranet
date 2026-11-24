@@ -1,0 +1,598 @@
+ ▐▛███▛█   Claude Code v2.1.330
+▝▜██████▀  Opus 5.5 · Claude Pro
+ ▝▝   ▝▝   /var/www/extranet
+
+
+❯ upgrade to symfony 8.2                                                        
+  ⎿  ⧉ Selected 1 lines from .env.local in PhpStorm
+
+  Ran 2 shell commands (ctrl+o to expand)
+
+● Answered Claude's questions:
+  ⎿  · Symfony 8.2 isn't stable yet: Packagist only has v8.2.0-BETA2. The latest
+     stable release is 8.1.11. Which version should I upgrade to? → 8.1 stable 
+     (Recommended)
+
+● Bash(cp composer.json composer.lock symfony.lock /tmp/claude-1002/-var-www-ext
+      ranet/3b96f2df-144c-4e34-af08-4d9768662a64/scratchpad/ && sed -i
+      's/"7\.4\.\*"/"8.1.*"/…)
+  ⎿  34
+       Problem 7
+         - knplabs/knp-snappy-bundle is locked to version v1.10.6 and an up
+     … +102 lines (ctrl+o to expand)
+  ⎿  Updated composer.json +35 -35
+       4      "minimum-stability": "stable",
+       5      "prefer-stable": true,
+       6      "require": {
+       7 -        "php": ">=8.3",                                        
+       7 +        "php": ">=8.4",                                        
+       8          "ext-ctype": "*",
+       9          "ext-iconv": "*",
+      10          "doctrine/dbal": "^3.10.5",
+     ...
+      20          "phpdocumentor/reflection-docblock": "^5.6.7",
+      21          "phpoffice/phpspreadsheet": "^5.7.0",
+      22          "phpstan/phpdoc-parser": "^2.3.2",
+      23 -        "symfony/asset": "7.4.*",                              
+      24 -        "symfony/asset-mapper": "7.4.*",                       
+      25 -        "symfony/console": "7.4.*",                            
+      26 -        "symfony/doctrine-messenger": "7.4.*",                 
+      27 -        "symfony/dotenv": "7.4.*",                             
+      28 -        "symfony/expression-language": "7.4.*",                
+      23 +        "symfony/asset": "8.1.*",                              
+      24 +        "symfony/asset-mapper": "8.1.*",                       
+      25 +        "symfony/console": "8.1.*",                            
+      26 +        "symfony/doctrine-messenger": "8.1.*",                 
+      27 +        "symfony/dotenv": "8.1.*",                             
+      28 +        "symfony/expression-language": "8.1.*",                
+      29          "symfony/flex": "^2.10.0",
+      30 -        "symfony/form": "7.4.*",                               
+      31 -        "symfony/framework-bundle": "7.4.*",                   
+      32 -        "symfony/http-client": "7.4.*",                        
+      33 -        "symfony/intl": "7.4.*",                               
+      34 -        "symfony/ldap": "7.4.*",                               
+      35 -        "symfony/mailer": "7.4.*",                             
+      36 -        "symfony/mime": "7.4.*",                               
+      30 +        "symfony/form": "8.1.*",                               
+      31 +        "symfony/framework-bundle": "8.1.*",                   
+      32 +        "symfony/http-client": "8.1.*",                        
+      33 +        "symfony/intl": "8.1.*",                               
+      34 +        "symfony/ldap": "8.1.*",                               
+      35 +        "symfony/mailer": "8.1.*",                             
+      36 +        "symfony/mime": "8.1.*",                               
+      37          "symfony/monolog-bundle": "^3.11.2",
+      38 -        "symfony/notifier": "7.4.*",                           
+     … +57 lines (ctrl+o to expand)
+
+● Bash(composer require --no-update \
+       "doctrine/dbal:^4.6" "doctrine/doctrine-bundle:^3.4"
+      "doctrine/doctrine-migrations-bundle:^4.0" \…)
+  ⎿  ./composer.json has been updated
+       - Upgrading symfony/twig-bridge (v7.4.12 => v8.1.10)
+       - Upgrading symfony/debug-bundle (v7.4.8 => v8.1.0)
+     … +38 lines (ctrl+o to expand)
+  ⎿  Updated composer.json +10 -10
+       7          "php": ">=8.4",
+       8          "ext-ctype": "*",
+       9          "ext-iconv": "*",
+      10 -        "doctrine/dbal": "^3.10.5",                            
+      11 -        "doctrine/doctrine-bundle": "^2.18.2",                 
+      12 -        "doctrine/doctrine-migrations-bundle": "^3.7.0",       
+      10 +        "doctrine/dbal": "^4.6",                               
+      11 +        "doctrine/doctrine-bundle": "^3.4",                    
+      12 +        "doctrine/doctrine-migrations-bundle": "^4.0",         
+      13          "doctrine/orm": "^3.6.7",
+      14          "endroid/qr-code": "^6.1.3",
+      15          "h4cc/wkhtmltopdf-amd64": "^0.12.4",
+     ...
+      26          "symfony/doctrine-messenger": "8.1.*",
+      27          "symfony/dotenv": "8.1.*",
+      28          "symfony/expression-language": "8.1.*",
+      29 -        "symfony/flex": "^2.10.0",                             
+      29 +        "symfony/flex": "^2.12",                               
+      30          "symfony/form": "8.1.*",
+      31          "symfony/framework-bundle": "8.1.*",
+      32          "symfony/http-client": "8.1.*",
+     ...
+      34          "symfony/ldap": "8.1.*",
+      35          "symfony/mailer": "8.1.*",
+      36          "symfony/mime": "8.1.*",
+      37 -        "symfony/monolog-bundle": "^3.11.2",                   
+      37 +        "symfony/monolog-bundle": "^4.1",                      
+      38          "symfony/notifier": "8.1.*",
+      39          "symfony/process": "8.1.*",
+      40          "symfony/property-access": "8.1.*",
+     ...
+      43          "symfony/runtime": "8.1.*",
+      44          "symfony/security-bundle": "8.1.*",
+      45          "symfony/serializer": "8.1.*",
+      46 -        "symfony/stimulus-bundle": "^2.35",                    
+      46 +        "symfony/stimulus-bundle": "^3.8",                     
+      47          "symfony/string": "8.1.*",
+      48 -        "symfony/uid": "8.1.*",                                
+      48          "symfony/translation": "8.1.*",
+      49          "symfony/twig-bundle": "8.1.*",
+      51 -        "symfony/ux-dropzone": "^2.35.0",                      
+      52 -        "symfony/ux-turbo": "^2.35",                           
+      50 +        "symfony/uid": "8.1.*",                                
+     … +13 lines (ctrl+o to expand)
+
+● Bash(composer update -W 2>&1 | grep -vE '^\s+-
+      (Upgrading|Downloading|Installing)' | tail -40)
+  ⎿    29/118 [======>---------------------]  24%
+       39/118 [=========>------------------]  33%
+       49/118 [===========>----------------]  41%
+     … +37 lines (ctrl+o to expand)
+  ⎿  Updated assets/controllers.json +4 -1
+      12          "@symfony/ux-turbo": {
+      13              "turbo-core": {
+      14                  "enabled": true,
+      15 -                "fetch": "eager"                               
+      15 +                "fetch": "eager",                              
+      16 +                "autoimport": {                                
+      17 +                    "@symfony/ux-turbo/dist/mercure_stream_sour
+         +ce_element.js": true                                           
+      18 +                }                                              
+      19              },
+      20              "mercure-turbo-stream": {
+      21                  "enabled": false,
+  ⎿  … +1 file changed
+     composer.lock
+  ⎿  (timeout 10m)
+
+  Ran 2 shell commands (ctrl+o to expand)
+
+● Symfony 8.1 packages are installed; now fixing the module config files, which
+  used the fluent Symfony\Config\* builders that Symfony 8 removed.
+
+  Ran 2 shell commands (ctrl+o to expand)
+
+● Now the security config:
+
+● Write(src/AcMarche/Extranet/config/packages/security.php)
+  ⎿  Added 47 lines, removed 43 lines
+       3  use AcMarche\Extranet\Entity\User;
+       4  use AcMarche\Extranet\Security\Authenticator\ExtranetAuthentica
+          tor;
+       5  use AcMarche\Extranet\Security\Authenticator\ExtranetLdapAuthen
+          ticator;
+       6 +use Symfony\Component\DependencyInjection\Loader\Configurator\C
+         +ontainerConfigurator;                                          
+       7  use Symfony\Component\Ldap\Ldap;
+       8  use Symfony\Component\Ldap\LdapInterface;
+       8 -use Symfony\Config\SecurityConfig;                             
+       9 
+      10 -return static function (SecurityConfig $security): void {      
+      11 -    $security                                                  
+      12 -        ->provider('extranet_user_provider')                   
+      13 -        ->entity()                                             
+      14 -        ->class(User::class)                                   
+      15 -        ->managerName('default')                               
+      16 -        ->property('username');                                
+      17 -                                                               
+      18 -    $security                                                  
+      19 -        ->firewall('dev')                                      
+      20 -        ->pattern('^/(_(profiler|wdt)|css|images|js)/')        
+      21 -        ->security(false);                                     
+      22 -                                                               
+      23 -    $mainFirewall = $security                                  
+      24 -        ->firewall('main')                                     
+      25 -        ->lazy(true);                                          
+      26 -                                                               
+      27 -    $mainFirewall->switchUser();                               
+      28 -                                                               
+      29 -    $mainFirewall                                              
+      30 -        ->formLogin()                                          
+      31 -        ->loginPath('app_login')                               
+      32 -        ->rememberMe(true)                                     
+      33 -        ->enableCsrf(true);                                    
+      34 -                                                               
+      35 -    $mainFirewall                                              
+      36 -        ->logout()                                             
+      37 -        ->path('app_logout');                                  
+      38 -                                                               
+      10 +return static function (ContainerConfigurator $containerConfigu
+         +rator): void {                                                 
+      11      $authenticators = [ExtranetAuthenticator::class];
+      12 
+      13 +    $mainFirewall = [                                          
+      14 +        'lazy' => true,                                        
+      15 +        'switch_user' => true,                                 
+      16 +        'form_login' => [                                      
+      17 +            'login_path' => 'app_login',                       
+      18 +            'remember_me' => true,                             
+      19 +            'enable_csrf' => true,                             
+      20 +        ],                                                     
+      21 +        'logout' => [                                          
+      22 +            'path' => 'app_logout',                            
+      23 +        ],                                                     
+      24 +    ];                                                         
+      25 +                                                               
+      26      if (interface_exists(LdapInterface::class)) {
+      27          $authenticators[] = ExtranetLdapAuthenticator::class;
+      43 -        $mainFirewall->formLoginLdap([                         
+      28 +        $mainFirewall['form_login_ldap'] = [                   
+      29              'service' => Ldap::class,
+      30              'check_path' => 'app_login',
+      46 -        ]);                                                    
+      31 +        ];                                                     
+      32      }
+      33 
+      49 -    $mainFirewall                                              
+      50 -        ->customAuthenticators($authenticators)                
+      51 -        ->provider('extranet_user_provider')                   
+      52 -        ->entryPoint(ExtranetAuthenticator::class)             
+      53 -        ->loginThrottling()                                    
+      54 -        ->maxAttempts(6)                                       
+      55 -        ->interval('15 minutes');                              
+      56 -                                                               
+      57 -    $mainFirewall                                              
+      58 -        ->rememberMe([                                         
+      34 +    $mainFirewall += [                                         
+      35 +        'custom_authenticators' => $authenticators,            
+      36 +        'provider' => 'extranet_user_provider',                
+      37 +        'entry_point' => ExtranetAuthenticator::class,         
+      38 +        'login_throttling' => [                                
+      39 +            'max_attempts' => 6,                               
+      40 +            'interval' => '15 minutes',                        
+      41 +        ],                                                     
+      42 +        'remember_me' => [                                     
+      43              'secret' => '%kernel.secret%',
+      44              'lifetime' => 604800,
+      45              'path' => '/',
+      46              'always_remember_me' => true,
+      63 -        ]);                                                    
+      47 +        ],                                                     
+      48 +    ];                                                         
+      49 +                                                               
+      50 +    $containerConfigurator->extension('security', [            
+      51 +        'providers' => [                                       
+      52 +            'extranet_user_provider' => [                      
+      53 +                'entity' => [                                  
+      54 +                    'class' => User::class,                    
+      55 +                    'manager_name' => 'default',               
+      56 +                    'property' => 'username',                  
+      57 +                ],                                             
+      58 +            ],                                                 
+      59 +        ],                                                     
+      60 +        'firewalls' => [                                       
+      61 +            'dev' => [                                         
+      62 +                'pattern' => '^/(_(profiler|wdt)|css|images|js)
+         +/',                                                            
+      63 +                'security' => false,                           
+      64 +            ],                                                 
+      65 +            'main' => $mainFirewall,                           
+      66 +        ],                                                     
+      67 +    ]);                                                        
+      68  };
+
+  Read 1 file, ran 1 shell command (ctrl+o to expand)
+
+● Bash(python3 - <<'EOF'
+      p='config/packages/doctrine.yaml'…)
+  ⎿      ./vendor/symfony/dependency-injection/Compiler/Compiler.php:73 { …
+     }
+         ./vendor/symfony/dependency-injection/ContainerBuilder.php:823 { …
+     … +17 lines (ctrl+o to expand)
+  ⎿  Updated config/packages/doctrine.yaml -6
+       7          #server_version: '16'
+       8 
+       9          profiling_collect_backtrace: '%kernel.debug%'
+      10 -        use_savepoints: true                                   
+      10      orm:
+      12 -        auto_generate_proxy_classes: true                      
+      13 -        enable_lazy_ghost_objects: true                        
+      14 -        report_fields_where_declared: true                     
+      11          validate_xml_mapping: true
+      12          naming_strategy: doctrine.orm.naming_strategy.underscor
+          e_number_aware
+      13          identity_generation_preferences:
+     ...
+      32  when@prod:
+      33      doctrine:
+      34          orm:
+      39 -            auto_generate_proxy_classes: false                 
+      40 -            proxy_dir: '%kernel.build_dir%/doctrine/orm/Proxies
+         -'                                                              
+      35              query_cache_driver:
+      36                  type: pool
+      37                  pool: doctrine.system_cache_pool
+
+  Searched for 1 pattern, ran 1 shell command (ctrl+o to expand)
+
+● Container build now gets past config; fixing LdapExtranet, which lacks the new
+  LdapInterface methods (saslBind, whoami).
+
+● Update(src/AcMarche/Extranet/src/Security/Ldap/LdapExtranet.php)
+  ⎿  Added 11 lines, removed 1 line
+      24      /**
+      25       * {@inheritdoc}
+      26       */
+      27 -    public function bind(string $dn = null, string $password = 
+         -null): void                                                    
+      27 +    public function bind(?string $dn = null, #[\SensitiveParame
+         +ter] ?string $password = null): void                           
+      28      {
+      29          $this->adapter->getConnection()->bind($dn, $password);
+      30      }
+      31 
+      32 +    public function saslBind(?string $dn = null, #[\SensitivePa
+         +rameter] ?string $password = null, ?string $mech = null, ?strin
+         +g $realm = null, ?string $authcId = null, ?string $authzId = nu
+         +ll, ?string $props = null): void                               
+      33 +    {                                                          
+      34 +        $this->adapter->getConnection()->saslBind($dn, $passwor
+         +d, $mech, $realm, $authcId, $authzId, $props);                 
+      35 +    }                                                          
+      36 +                                                               
+      37 +    public function whoami(): string                           
+      38 +    {                                                          
+      39 +        return $this->adapter->getConnection()->whoami();      
+      40 +    }                                                          
+      41 +                                                               
+      42      /**
+      43       * {@inheritdoc}
+      44       */
+
+● Bash(rm -rf var/cache/* && php bin/console cache:clear 2>&1 | grep -vE
+      '^\s+(\./vendor|#[0-9])|^\s*\}' | head -20)
+  ⎿   // Clearing the cache for the dev environment with debug true
+     … +2 lines (ctrl+o to expand)
+  ⎿  1 file changed (binary, mode only or too large to show)
+     config/reference.php
+
+● Cache builds. Now running linters and checking for code using APIs removed in
+  Symfony 8 / DBAL 4.
+
+  Searched for 2 patterns, ran 4 shell commands (ctrl+o to expand)
+
+● Fixing removed namespaces (Vich Annotation → Attribute, Serializer Annotation
+  → Attribute) and Request::get(), which Symfony 8 removed.
+
+  Ran 2 shell commands (ctrl+o to expand)
+
+● Clearing the cheap deprecations too:
+
+● Bash(sed -i "/'alias' => 'AcMarche/d"
+      src/AcMarche/*/config/packages/doctrine.php && python3 - <<'EOF'
+      import re…)
+  ⎿  config/reference.php:197: *         collect_serializer_data?: true|Par
+     am, // Deprecated: Setting the "framework.profiler.collect_serializer_
+     data.collect_serializer_data" configuration option is deprecated. It w
+     … +13 lines (ctrl+o to expand)
+  ⎿  Updated config/packages/doctrine.yaml -3
+      19                  is_bundle: false
+      20                  dir: '%kernel.project_dir%/src/Entity'
+      21                  prefix: 'App\Entity'
+      22 -                alias: App                                     
+      23 -        controller_resolver:                                   
+      24 -            auto_mapping: false                                
+      22 
+      23  when@test:
+      24      doctrine:
+
+● Bash(sed -i '/collect_serializer_data: true/d'
+      config/packages/web_profiler.yaml && sed -i 's/AuthenticationException
+      \$authException = null/?AuthenticationException…)
+  ⎿      public function __construct(
+             private readonly UserRepository $userRepository,
+             private readonly UserPasswordHasherInterface $userPasswordHash
+     … +20 lines (ctrl+o to expand)
+  ⎿  Updated config/packages/web_profiler.yaml -2
+       4 
+       5      framework:
+       6          profiler:
+       7 -            collect_serializer_data: true                      
+       7 
+       8  when@test:
+       9      framework:
+      10          profiler:
+      11              collect: false
+      13 -            collect_serializer_data: true                      
+
+● Bash(sed -i 's/        string \$name = null$/        ?string $name = null/'
+      src/AcMarche/Extranet/src/Command/ExtranetUserCommand.php && python3 -
+      <<'EOF'
+      p='config/…)
+  ⎿        values that are compatible with their type declarations.
+     … +3 lines (ctrl+o to expand)
+  ⎿  Updated config/packages/web_profiler.yaml +1 -1
+      3          toolbar: true
+      4 
+      5      framework:
+      6 -        profiler:                                               
+      6 +        profiler: ~                                             
+      7 
+      8  when@test:
+      9      framework:
+  ⎿  Updated config/packages/liip_imagine.yaml +2
+      2  liip_imagine:
+      3      # valid drivers options include "gd" or "gmagick" or "imagic
+         k"
+      4      driver: "gd"
+      5 +    twig:                                                       
+      6 +        mode: lazy                                              
+  ⎿  (timeout 5m)
+
+● Container is clean (only a vendor deprecation from VichUploader remains).
+  Checking the frontend side for UX 3.
+  Ran 2 shell commands (ctrl+o to expand)
+
+● JS deps are compatible as-is. Running tests, audit, and a smoke test of the
+  app.
+
+  Ran 6 shell commands · 1 failed (ctrl+o to expand)
+
+● Wrapping up: re-applying the CLAUDE.md version note (the previous command was
+  interrupted) and checking the Flex change to assets/controllers.json.
+
+● Bash(sed -i 's/Symfony 7\.3/Symfony 8.1/g; s/PHP 8\.3+/PHP 8.4+/g' CLAUDE.md;
+      grep -c 'Symfony 8.1' CLAUDE.md; git diff assets/controllers.json)
+  ⎿  4
+     diff --git a/assets/controllers.json b/assets/controllers.json
+     index 677eeb6..61bc1f5 100644
+     … +15 lines (ctrl+o to expand)
+  ⎿  Updated CLAUDE.md +6 -6
+      62 
+      63  ## Project Summary
+      64 
+      65 -This is a **multi-module monolithic Symfony 7.3 application** s
+         -erving a Belgian local government (Marche) with six distinct mo
+         -dules, each operating as a semi-independent bundle with its own
+         - configuration, entities, and controllers. The architecture fol
+         -lows a modular pattern where modules are loaded via custom Symf
+         -ony bundles and have separate database tables (using table pref
+         -ixes).                                                         
+      65 +This is a **multi-module monolithic Symfony 8.1 application** s
+         +erving a Belgian local government (Marche) with six distinct mo
+         +dules, each operating as a semi-independent bundle with its own
+         + configuration, entities, and controllers. The architecture fol
+         +lows a modular pattern where modules are loaded via custom Symf
+         +ony bundles and have separate database tables (using table pref
+         +ixes).                                                         
+      66 
+      67  **Technology Stack:**
+      68 -- PHP 8.3+                                                     
+      69 -- Symfony 7.3                                                  
+      68 +- PHP 8.4+                                                     
+      69 +- Symfony 8.1                                                  
+      70  - Doctrine ORM
+      71  - PostgreSQL (implied by DBAL setup)
+      72  - Twig templating
+     ...
+      450 
+      451  | Technology | Purpose |
+      452  |-----------|---------|
+      453 -| **Symfony 7.3** | Core framework |                          
+      453 +| **Symfony 8.1** | Core framework |                          
+      454  | **Doctrine ORM 3.x** | Database abstraction |
+      455  | **Twig 3.x** | Template engine |
+      456  | **VichUploader** | File upload handling |
+     ...
+      472     - Single User entity (from Extranet)
+      473     - Single database (with table prefixes)
+      474     - Security framework
+      475 -3. **PHP 8.3+ Features:** Uses attributes, readonly properties
+          -, modern type hints                                           
+      475 +3. **PHP 8.4+ Features:** Uses attributes, readonly properties
+          +, modern type hints                                           
+      476  4. **No Traditional Services Layer:** Logic kept in handlers,
+           commands, or directly in repositories
+      477  5. **Template Namespace:** Auto-mapped as `@ModuleName` via bu
+           ndle configuration
+      478  6. **Trait Usage:** Common functionality via traits (CRUD, ent
+           ities, domain logic)
+     ...
+      507  ---
+      508 
+      509  **Last Updated:** 2025-11-17
+      510 -**Architecture Version:** Symfony 7.3 Multi-Module (2024-10)  
+      510 +**Architecture Version:** Symfony 8.1 Multi-Module (2024-10)  
+
+● The app is now on Symfony 8.1.11, not 8.2. As you chose, I didn't use 8.2
+  because Packagist only has v8.2.0-BETA2. Once 8.2.0 is stable, switching to it
+  should only mean changing 8.1.* to 8.2.* in composer.json.
+
+  Checks I ran: the dev and prod caches build, the container and the Twig/YAML
+  linters pass, all Doctrine mappings load, and composer audit finds no
+  advisories. Running the app locally, /, /login and the three API endpoints
+  return 200, and the admin pages redirect to login. I didn't log in or test any
+  workflow behind authentication. The project has no tests, so PHPUnit ran
+  nothing.
+
+  One page fails: /qrcode/ returns a 500 because the QRCODE_DIR environment
+  variable isn't defined in any .env file. I didn't change anything related to
+  it, so you'll need to add it.
+
+  Dependencies (composer.json)
+  - All Symfony packages are now 8.1.*, and the minimum PHP version is 8.4,
+    which Symfony 8 requires.
+  - Other packages needed new major versions to work with Symfony 8:
+    doctrine/dbal 4, doctrine-bundle 3, doctrine-migrations-bundle 4,
+    monolog-bundle 4, stimulus-bundle and ux-dropzone/ux-turbo 3, and
+    vich/uploader-bundle 3. Your current JS packages work with UX 3 unchanged.
+  - Backups of the old composer.json, composer.lock and symfony.lock are in
+    /tmp/claude-1002/-var-www-extranet/3b96f2df-144c-4e34-af08-4d9768662a64/scra
+    tchpad/.
+
+  Code fixed because Symfony 8 removed things it used
+  - Module config files: the twig.php, doctrine.php, security.php and
+    rate_limiter.php files used the fluent Symfony\Config\*Config classes, which
+    no longer exist. I rewrote them as $containerConfigurator->extension('…', 
+    [...]) arrays with the same settings.
+  - Extranet/config/services.php: a string reference '@…Adapter' no longer
+    works, so it now uses service(Adapter::class).
+  - LdapExtranet: added the two methods the LDAP interface now requires,
+    saslBind() and whoami().
+  - Upload and serializer attributes: changed
+    Vich\UploaderBundle\Mapping\Annotation to …\Attribute in 5 entity files, and
+    the Serializer Annotation\Groups to Attribute\Groups.
+  - $request->get() was removed: it now reads $request->request->get() in
+    ExerciceController and $request->getPayload() in the EnquetePublique
+    authenticator.
+  - doctrine.yaml: removed options DoctrineBundle 3 no longer accepts, such as
+    use_savepoints and auto_generate_proxy_classes.
+
+  Deprecation cleanup: I removed the mapping alias and
+  controller_resolver.auto_mapping options, removed the profiler's
+  collect_serializer_data, set liip_imagine.twig.mode: lazy, and fixed two
+  parameters that were nullable without saying so. The only warning left comes
+  from VichUploader itself. I also updated the version numbers in CLAUDE.md.
+
+  Before committing: src/AcMarche/* is untracked in the main repo, and each
+  module is its own git repo. That means the module changes have to be committed
+  separately in each module repo. Leasing/src/Handler/LeasingFactory.php
+  already had changes before I started, and I didn't touch it. Nothing has been
+  committed yet.
+
+✻ Brewed for 4m 9s · done 14:52
+
+❯ Symfony\Component\Validator\Constraints\Length::__construct(): Argument #1    
+  ($exactly) must be of type ?int, array given, called in                       
+  /var/www/extranet/src/AcMarche/EnquetePublique/src/Form/EnqueteType.php on    
+  line 24                                                                       
+  TypeError                                                                     
+  in vendor/symfony/validator/Constraints/Length.php (line 70)                  
+  Length->__construct()                                                         
+  in src/AcMarche/EnquetePublique/src/Form/EnqueteType.php (line 24)            
+      public function buildForm(FormBuilderInterface $formBuilder, array        
+  $options): void    {        $formBuilder            ->add('intitule',         
+  TextType::class, [                'constraints' => [                    new   
+  Length([                        'min' => 10,                        'max' =>  
+  250,                    ]),                ],            ])                   
+
+● Symfony 8 no longer accepts an options array in constraint constructors, so
+  these need named arguments. I'll look for other places with the same pattern.
+
+  Searched for 1 pattern (ctrl+o to expand)
+
+● Only one place uses it.
+
+● Update(src/AcMarche/EnquetePublique/src/Form/EnqueteType.php)
+  ⎿  Added 1 line, removed 4 lines
+      21          $formBuilder
+      22              ->add('intitule', TextType::class, [
+      23                  'constraints' => [
+      24 -                    new Length([                               
+      25 -                        'min' => 10,                           
+      26 -                        'max' => 250,                          
+      27 -                    ]),                                        
+      24 +                    new Length(min: 10, max: 250),             
+      25                  ],
+      26              ])
+      27              ->add(
+
+  Ran 1 shell command (ctrl+o to expand)
+
+● I fixed the error in src/AcMarche/EnquetePublique/src/Form/EnqueteType.php:24.
+  Symfony 8 removed the option arrays that constraints used to accept, so the
+  line now uses named arguments:
+
+  new Length(min: 10, max: 250),
+
+  I searched all of src/AcMarche and src/App for other constraints built with an
+  option array, including ones split over two lines and #[Assert\…([…])]
+  attributes. This was the only one. The file passes a syntax check, but I
+  haven't reloaded the enquête form to confirm it works.
+
+✻ Churned for 15s · done 15:08

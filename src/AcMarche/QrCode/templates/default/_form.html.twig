@@ -1,0 +1,27 @@
+{{ form_start(form) }}
+{{ form_errors(form) }}
+
+{% if type == 'epc' %}
+    {% include '@AcMarcheQrCode/form/_epc.html.twig' %}
+{% elseif type == 'email' %}
+    {% include '@AcMarcheQrCode/form/_email.html.twig' %}
+{% elseif type == 'geo' %}
+    {% include '@AcMarcheQrCode/form/_geo.html.twig' %}
+{% elseif type == 'phoneNumber' %}
+    {% include '@AcMarcheQrCode/form/_phoneNumber.html.twig' %}
+{% elseif type == 'sms' %}
+    {% include '@AcMarcheQrCode/form/_sms.html.twig' %}
+{% elseif type == 'wifi' %}
+    {% include '@AcMarcheQrCode/form/_wifi.html.twig' %}
+{% elseif type == 'url' %}
+    {% include '@AcMarcheQrCode/form/_url.html.twig' %}
+{% else %}
+    {% include '@AcMarcheQrCode/form/_text.html.twig' %}
+{% endif %}
+
+{% include '@AcMarcheQrCode/form/_base.html.twig' %}
+
+<button class="btn btn-primary mt-2 mb-2" type="submit"><i class="far fa-save" aria-hidden="true"></i>
+    Générer
+</button>
+{{ form_end(form) }}

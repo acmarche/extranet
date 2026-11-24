@@ -1,0 +1,9 @@
+<br/>
+<h4 class="text-success">Situation sur la carte</h4>
+
+<div id='openmap' style='width: 90%; height: 600px;' class="border border-primary">
+</div>
+
+<div {{ stimulus_controller('map', { 'nom': patrimoine.nom, 'latitude': patrimoine.latitude ?? g_latitude, 'longitude': patrimoine.longitude ?? g_longitude, 'drop': drop ?? false }) }} >
+
+</div>

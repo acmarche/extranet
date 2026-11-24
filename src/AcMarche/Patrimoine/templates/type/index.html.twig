@@ -1,0 +1,38 @@
+{% extends '@AcMarchePatrimoine/layout.html.twig' %}
+
+{% block body %}
+    <div class="card">
+        <div class="card-header"><h3>Liste des types</h3></div>
+        <div class="card-body">
+
+            {% if is_granted('ROLE_PATRIMOINE_ADMIN') %}
+
+                <a href="{{ path('patrimoine_type_new') }}" class="btn btn-primary" role="button"><i
+                            class="ti ti-plus"></i> Ajouter</a>
+                <br/><br/>
+
+            {% endif %}
+
+            <table class='table table-bordered table-hover'>
+                <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Patrimoine</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for type in types %}
+                    <tr>
+                        <td>
+                            <a href="{{ path('patrimoine_type_show', { 'id': type.id }) }}">
+                                {{ type }}
+                            </a>
+                        </td>
+                        <td></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,6 @@
+<div id='openmap' style='width: 90%; height: 600px;' class="border border-primary">
+</div>
+
+<div {{ stimulus_controller('map', { 'nom': enquete.rue, 'latitude': enquete.latitude ?? g_latitude, 'longitude': enquete.longitude ?? g_longitude, 'drop': drop ?? true }) }} >
+
+</div>

@@ -1,0 +1,54 @@
+{% extends '@Taxe/layout.html.twig' %}
+
+{% block title %}Taxe{% endblock %}
+
+{% block body %}
+    <div class="card">
+        <h3 class="card-header">{{ taxe.nom }}</h3>
+
+        <div class="card-body">
+            {{ include('@Taxe/taxe/_actions.html.twig') }}
+
+            <table class="table table-bordered">
+                <tr>
+                    <th>Année</th>
+                    <th>Url</th>
+                    <th>Fichier</th>
+                    <th>Actions</th>
+                </tr>
+
+                {% for exercice in taxe.exercices %}
+                    <tr>
+                        <td>{{ exercice.annee }}</td>
+                        <td>
+                            {% if exercice.url %}
+                                <a href="{{ exercice.url }}" target="_blank">{{ exercice.url }}</a>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if exercice.fileName %}
+                                <a href="{{ vich_uploader_asset(exercice, 'file') }}" target="_blank">Télécharger</a>
+                            {% endif %}
+                        </td>
+                        <td class="d-flex flex-row gap-4">
+                            <a href="{{ path('exercice_edit', { 'id': exercice.id }) }}" class="btn btn-info btn-sm">
+                                <i class="ti ti-edit"></i> Editer
+                            </a>
+                            <button name="coucou" type="button" class="btnDelete btn btn-danger btn-sm"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#deleteAuthorization"
+                                    data-id="{{ exercice.id }}"
+                                    data-token="{{ csrf_token('delete' ~ exercice.id) }}">
+                                <i class="ti ti-trash"></i> Supprimer
+                            </button>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+
+        </div>
+    </div>
+
+    {{ include('@Taxe/taxe/_delete_form.html.twig') }}
+    {{ include('@Taxe/exercice/_delete_form.html.twig') }}
+{% endblock %}

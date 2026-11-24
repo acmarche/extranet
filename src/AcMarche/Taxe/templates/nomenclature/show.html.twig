@@ -1,0 +1,19 @@
+{% extends '@Taxe/layout.html.twig' %}
+
+{% block title %}Nomenclature{% endblock %}
+
+{% block body %}
+
+    <div class="card">
+        <h3 class="card-header">{{ nomenclature }}</h3>
+
+        <div class="card-body">
+            <a href="{{ path('nomenclature_index') }}">Retour</a>
+
+            <a href="{{ path('nomenclature_edit', {'id': nomenclature.id}) }}">edit</a>
+
+        </div>
+    </div>
+
+    {{ include('@Taxe/nomenclature/_delete_form.html.twig') }}
+{% endblock %}

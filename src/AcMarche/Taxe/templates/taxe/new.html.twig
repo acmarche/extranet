@@ -1,0 +1,15 @@
+{% extends '@Taxe/layout.html.twig' %}
+
+{% block body %}
+
+    <div class="card">
+        <h3 class="card-header">Nouvelle taxe</h3>
+        <div class="card-body">
+            {{ include('@Taxe/taxe/_form.html.twig') }}
+        </div>
+        <div class="card-footer">
+            <a href="{{ path('taxe_index') }}">Retour à la liste</a>
+        </div>
+    </div>
+
+{% endblock %}

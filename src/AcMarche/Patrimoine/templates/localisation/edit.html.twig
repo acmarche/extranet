@@ -1,0 +1,27 @@
+{% extends '@Patrimoine/layout.html.twig' %}
+
+{% block body -%}
+
+    <div class="card mb-3">
+        <div class="card-header">
+            <h3>Géolocaliser {{ patrimoine }}</h3>
+        </div>
+        <div class="card-body">
+            <i class="ti ti-map"></i>
+
+            <div class="alert alert-info">
+                Déplacer le curseur à l'endroit voulu pour obtenir la longitude et latitude.
+                <br/>Ensuite sauvegarder les nouvelles coordonnées.
+            </div>
+
+            {% include('@Patrimoine/localisation/_form.html.twig') %}
+            {% include '@Patrimoine/patrimoine/_carte.html.twig' with {'drop': true} %}
+
+        </div>
+        <div class="card-footer">
+            <a href="{{ path('patrimoine_show', {'id' : patrimoine.id }) }}" class="btn btn-secondary">
+                <i class="ti ti-arrow-left mt-2"></i> Annuler
+            </a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends '@Taxe/layout.html.twig' %}
+
+{% block body %}
+
+    <div class="card">
+        <h3 class="card-header">Nouvelle nomenclature</h3>
+
+        <div class="card-body">
+            {{ include('@Taxe/nomenclature/_form.html.twig') }}
+            <a href="{{ path('nomenclature_index') }}">Retour</a>
+        </div>
+    </div>
+
+{% endblock %}

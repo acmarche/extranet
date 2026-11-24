@@ -1,0 +1,46 @@
+{% extends '@Taxe/layout.html.twig' %}
+
+{% block body %}
+
+    <div class="card">
+        <h3 class="card-header">Liste des taxes</h3>
+
+        <div class="card-body">
+            <a href="{{ path('taxe_tri') }}"><i class="ti ti-sort-0-9"></i>Trier</a>
+
+            {{ include('@Taxe/taxe/_search.html.twig') }}
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Nomenclature</th>
+                    <th>Exercices</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for taxe in taxes %}
+                    <tr>
+                        <td>
+                            <a href="{{ path('taxe_show', {'id': taxe.id}) }}">
+                                {{ taxe.nom }}
+                            </a>
+                        </td>
+                        <td>{{ taxe.nomenclature }}</td>
+                        <td>
+                            {% for exercice in taxe.exercices %}
+                                {{ exercice.annee }}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="3">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}

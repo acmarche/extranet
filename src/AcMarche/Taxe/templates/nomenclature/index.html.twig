@@ -1,0 +1,40 @@
+{% extends '@Taxe/layout.html.twig' %}
+
+{% block title %}Nomenclature index{% endblock %}
+
+{% block body %}
+
+    <div class="card">
+        <h3 class="card-header">Nomenclatures</h3>
+
+        <div class="card-body">
+            <a href="{{ path('nomenclature_new') }}"><i class="ti ti-plus"></i> Nouvelle</a>
+
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Nbre taxes</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for nomenclature in nomenclatures %}
+                    <tr>
+                        <td>
+                            <a href="{{ path('nomenclature_show', {'id': nomenclature.id}) }}">{{ nomenclature.nom }}</a>
+                        </td>
+                        <td>
+                            {{ nomenclature.taxes|length }}
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="3">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}

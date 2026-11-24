@@ -1,0 +1,33 @@
+{% extends 'base5.html.twig' %}
+
+{% block brand %}
+    <a class="navbar-brand" href="{{ path('leasing_new') }}" title="Accueil">
+        <i class="ti ti-bike" style="font-size: 40px;"></i> Leasing vélo</a>
+{% endblock %}
+
+{% block menu_top %}
+    <li>
+        <a href="{{ path('leasing_new') }}" class="nav-link px-2">
+            <i class="ti ti-calculator"> </i>
+            Simulateur pour l'achat
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('leasing_kilometer_index') }}" class="nav-link px-2">
+            <i class="ti ti-calculator"> </i>
+            Indemnités kilométriques
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('leasing_info') }}" class="nav-link px-2">
+            <i class="ti ti-info-circle"> </i>
+            Informations
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('leasing_presentation') }}" class="nav-link px-2">
+            <i class="ti ti-info-circle"> </i>
+            Présentation
+        </a>
+    </li>
+{% endblock %}

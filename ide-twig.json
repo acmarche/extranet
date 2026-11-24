@@ -1,0 +1,12 @@
+{
+    "namespaces": [
+        {
+            "namespace": "AcMarcheQrCode",
+            "path": "src/AcMarche/QrCode/templates"
+        },
+        {
+            "namespace": "Extranet",
+            "path": "src/AcMarche/Extranet/templates"
+        }
+    ]
+}

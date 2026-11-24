@@ -1,0 +1,19 @@
+{% extends '@Taxe/layout.html.twig' %}
+
+{% block title %}Edit Taxe{% endblock %}
+
+{% block body %}
+    <div class="card">
+        <h3 class="card-header">Edit Taxe</h3>
+
+        <div class="card-body">
+
+            {{ include('@Taxe/taxe/_form.html.twig', {'button_label': 'Update'}) }}
+    </div>
+        <div class="card-footer">
+            <a href="{{ path('taxe_index') }}">Retour</a>
+        </div>
+    </div>
+
+    {{ include('@Taxe/taxe/_delete_form.html.twig') }}
+{% endblock %}

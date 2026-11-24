@@ -1,0 +1,28 @@
+{% extends '@AcMarchePatrimoine/layout.html.twig' %}
+
+{% block body -%}
+    <div class="card bg-light mb-3">
+        <div class="card-header">
+            <h3>{{ patrimoine }}</h3>
+        </div>
+        <div class="card-body">
+
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                <i class="ti ti-trash"></i> Supprimer l'image
+            </button>
+
+            <a href="{{ path('patrimoine_show', {'id' : patrimoine.id }) }}" class="btn btn-secondary">
+                <i class="ti ti-arrow-left"></i> Annuler
+            </a>
+
+            <br/> <br/>
+            <img class="img-thumbnail"
+                 src="{{ vich_uploader_asset(image, 'file') | imagine_filter('patrimoine_thumb') }}" alt="img"/>
+            <br/>
+
+            <br/><br/>
+
+            {% include '@AcMarchePatrimoine/image/_delete.html.twig' %}
+        </div>
+    </div>
+{% endblock %}

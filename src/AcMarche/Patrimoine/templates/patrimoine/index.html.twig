@@ -1,0 +1,52 @@
+{% extends '@AcMarchePatrimoine/layout.html.twig' %}
+
+{% block body %}
+    <div class="card">
+        <div class="card-header"><h3>Liste des patrimoines</h3></div>
+        <div class="card-body">
+
+            {% include '@AcMarchePatrimoine/patrimoine/_search.html.twig' %}
+
+            {% if search %}
+                <table class='table table-bordered table-hover'>
+                    <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Localité</th>
+                        <th>Statut</th>
+                        <th>Type</th>
+                        <th>Photo</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for patrimoine in patrimoines %}
+                        <tr>
+                            <td>
+                                <a href="{{ path('patrimoine_show', { 'id': patrimoine.id }) }}">
+                                    {{ patrimoine }}
+                                </a>
+                            </td>
+                            <td>
+                                {{ patrimoine.localite }}
+                            </td>
+                            <td>
+                                {{ patrimoine.statut }}
+                            </td>
+                            <td>
+                                {{ patrimoine.typePatrimoine }}
+                            </td>
+                            <td>
+                                <a href="{{ path('patrimoine_show', { 'id': patrimoine.id }) }}">
+                                    <img class="img-thumbnail"
+                                         src="{{ patrimoine.photo }}" style="width: 150px;"
+                                         alt="img"/>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

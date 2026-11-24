@@ -1,0 +1,27 @@
+{% extends '@EnquetePublique/layout.html.twig' %}
+
+{% block body -%}
+    <div class="card mb-3">
+        <div class="card-header">
+            <h3>{{ enquete.categorie }} à {{ enquete.localite }}</h3>
+        </div>
+        <div class="card-body">
+
+            <br/><br/>
+            <table class='table table-bordered table-hover'>
+                <tr>
+                    <th>
+                        <i class="ti ti-map"></i> Adresse
+                    </th>
+                    <td>
+                        {{ enquete.rue }} {{ enquete.numero }} <br/>
+                        {{ enquete.codePostal }} {{ enquete.localite }}
+                    </td>
+                </tr>
+            </table>
+            <h4 class="text-success">Situation sur la carte</h4>
+            {{ include('@AcMarcheEnquetePublique/localisation/_localisation_form.html.twig') }}
+            {% include '@AcMarcheEnquetePublique/localisation/_openstreetmap.html.twig' %}
+        </div>
+    </div>
+{% endblock %}

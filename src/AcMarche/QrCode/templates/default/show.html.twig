@@ -1,0 +1,38 @@
+{% extends '@AcMarcheQrCode/layout.html.twig' %}
+
+{% block body %}
+    <div class="card">
+        <h3 class="card-header">QrCode {{ qrcode.id }}</h3>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <tr>
+                    <th>Id</th>
+                    <td>{{ qrcode.id }}</td>
+                </tr>
+                <tr>
+                    <th>Nom</th>
+                    <td>{{ qrcode.name }}</td>
+                </tr>
+                <tr>
+                    <th>Couleur</th>
+                    <td>{{ qrcode.color }}</td>
+                </tr>
+                <tr>
+                    <th>Couleur de fond</th>
+                    <td>{{ qrcode.backgroundColor }}</td>
+                </tr>
+                <tr>
+                    <th>Url</th>
+                    <td>{{ qrcode.message }}</td>
+                </tr>
+                <tr>
+                    <th>Crée le</th>
+                    <td>{{ qrcode.createdAt|format_date('full') }}</td>
+                </tr>
+            </table>
+
+            {% include '@AcMarcheQrCode/default/_qrcode.html.twig' %}
+
+        </div>
+    </div>
+{% endblock %}
