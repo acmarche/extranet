@@ -5,6 +5,7 @@ namespace AcMarche\Leasing\Handler;
 use AcMarche\Leasing\Entity\LeasingData;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Uid\Uuid;
 use Twig\Environment;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
